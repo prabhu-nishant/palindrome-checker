@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.controller.PalindromeControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-08T23:02:30" hostname="DESKTOP-5R8V3B7" time="0.716">
+<testsuite name="com.app.controller.PalindromeControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-08T23:26:36" hostname="DESKTOP-5R8V3B7" time="1.091">
   <properties/>
-  <testcase name="checkPalindrome()" classname="com.app.controller.PalindromeControllerTest" time="0.716"/>
-  <system-out><![CDATA[23:02:23.855 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [PalindromeControllerTest]: using SpringBootContextLoader
-23:02:23.863 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.app.controller.PalindromeControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-23:02:23.943 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [PalindromeControllerTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
-23:02:24.171 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [PalindromeControllerTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-23:02:24.174 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [PalindromeControllerTest], class annotated with @DirtiesContext [false] with mode [null]
+  <testcase name="checkPalindrome()" classname="com.app.controller.PalindromeControllerTest" time="1.091"/>
+  <system-out><![CDATA[23:26:24.414 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [PalindromeControllerTest]: using SpringBootContextLoader
+23:26:24.431 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.app.controller.PalindromeControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+23:26:24.524 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [PalindromeControllerTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+23:26:24.920 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [PalindromeControllerTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+23:26:24.926 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [PalindromeControllerTest], class annotated with @DirtiesContext [false] with mode [null]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -16,28 +16,32 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.1)
 
-2023-01-08T23:02:24.649Z  INFO 24584 --- [    Test worker] c.a.controller.PalindromeControllerTest  : Starting PalindromeControllerTest using Java 17.0.5 with PID 24584 (started by prabh in C:\Users\prabh\IdeaProjects\palindrome-checker)
-2023-01-08T23:02:24.649Z  INFO 24584 --- [    Test worker] c.a.controller.PalindromeControllerTest  : No active profile set, falling back to 1 default profile: "default"
-2023-01-08T23:02:25.482Z  INFO 24584 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-08T23:02:25.483Z  INFO 24584 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-01-08T23:02:25.707Z  INFO 24584 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 204 ms. Found 1 JPA repository interfaces.
-2023-01-08T23:02:26.103Z  INFO 24584 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-08T23:02:26.107Z  INFO 24584 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2023-01-08T23:02:26.128Z  INFO 24584 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
-2023-01-08T23:02:27.150Z  INFO 24584 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-01-08T23:02:27.273Z  INFO 24584 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
-2023-01-08T23:02:27.610Z  WARN 24584 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-2023-01-08T23:02:27.843Z  INFO 24584 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-01-08T23:02:28.126Z  INFO 24584 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/test user=TEST
-2023-01-08T23:02:28.126Z  INFO 24584 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-01-08T23:02:28.166Z  INFO 24584 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2023-01-08T23:02:29.332Z  INFO 24584 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-01-08T23:02:29.347Z  INFO 24584 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-01-08T23:02:30.099Z  WARN 24584 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-08T23:02:30.879Z  INFO 24584 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-01-08T23:02:30.879Z  INFO 24584 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-01-08T23:02:30.888Z  INFO 24584 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2023-01-08T23:02:30.926Z  INFO 24584 --- [    Test worker] c.a.controller.PalindromeControllerTest  : Started PalindromeControllerTest in 6.692 seconds (process running for 8.565)
+2023-01-08T23:26:25.766Z  INFO 14548 --- [    Test worker] c.a.controller.PalindromeControllerTest  : Starting PalindromeControllerTest using Java 17.0.5 with PID 14548 (started by prabh in C:\Users\prabh\IdeaProjects\palindrome-checker)
+2023-01-08T23:26:25.770Z  INFO 14548 --- [    Test worker] c.a.controller.PalindromeControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2023-01-08T23:26:26.913Z  INFO 14548 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-08T23:26:26.913Z  INFO 14548 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-08T23:26:27.292Z  INFO 14548 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 356 ms. Found 1 JPA repository interfaces.
+2023-01-08T23:26:27.782Z  INFO 14548 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-08T23:26:27.782Z  INFO 14548 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-08T23:26:27.838Z  INFO 14548 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 0 Redis repository interfaces.
+2023-01-08T23:26:29.977Z  INFO 14548 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-08T23:26:30.321Z  INFO 14548 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-01-08T23:26:31.288Z  WARN 14548 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-01-08T23:26:31.605Z  INFO 14548 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-08T23:26:32.409Z  INFO 14548 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/test user=TEST
+2023-01-08T23:26:32.412Z  INFO 14548 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-08T23:26:32.537Z  INFO 14548 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-08T23:26:34.850Z  INFO 14548 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-08T23:26:34.873Z  INFO 14548 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-08T23:26:35.732Z  WARN 14548 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-08T23:26:36.761Z  INFO 14548 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-01-08T23:26:36.761Z  INFO 14548 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-01-08T23:26:36.766Z  INFO 14548 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-01-08T23:26:36.815Z  INFO 14548 --- [    Test worker] c.a.controller.PalindromeControllerTest  : Started PalindromeControllerTest in 11.8 seconds (process running for 16.338)
 ]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[[2023.01.08 23:26:25] (Coverage): Error during class instrumentation: org.springframework.boot.logging.log4j2.Log4J2LoggingSystem: java.lang.RuntimeException: java.io.IOException: Class org/apache/logging/log4j/core/config/composite/CompositeConfiguration not found
+[2023.01.08 23:26:26] (Coverage): Error during class instrumentation: org.springframework.mail.javamail.JavaMailSenderImpl: java.lang.RuntimeException: java.io.IOException: Class jakarta/mail/internet/MimeMessage not found
+[2023.01.08 23:26:26] (Coverage): Error during class instrumentation: org.springframework.data.redis.connection.jedis.JedisConnection: java.lang.RuntimeException: java.io.IOException: Class redis/clients/jedis/exceptions/JedisDataException not found
+[2023.01.08 23:26:27] (Coverage): Error during class instrumentation: org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport: java.lang.RuntimeException: java.io.IOException: Class jakarta/validation/ValidatorFactory not found
+]]></system-err>
 </testsuite>
