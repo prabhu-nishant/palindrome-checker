@@ -6,15 +6,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TestDataHelper {
 
-    public static String VALID_TEST_STRING = "Test";
+    public static final String VALID_TEST_STRING = "Test";
 
-    public static String EMPTY_STRING = "";
+    public static final String EMPTY_STRING = "";
 
-    public static String NULL_STRING = null;
+    public static final String NULL_STRING = null;
 
-    public static String ALPHA_NUMERIC_STRING = "madam123";
+    public static final String ALPHA_NUMERIC_STRING = "madam123";
 
-    public static String NUMERIC_STRING = "12345";
+    public static final String NUMERIC_STRING = "12345";
 
 
     public static String getTestUserDetails() throws JsonProcessingException {

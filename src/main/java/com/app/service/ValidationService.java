@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class ValidationService {
 
-    private final IValidator validator ;
+    private final IValidator validator;
 
-    public ValidationService(){
+    public ValidationService() {
         validator = new EmptyStringValidator();
         validator.setNext(new NoNumeralValidator());
     }

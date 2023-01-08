@@ -14,7 +14,7 @@ public abstract class AbstractValidator<T> implements IValidator<T> {
 
     @Override
     public IValidator<T> setNext(IValidator<T> next) {
-        nextValidator = next ;
+        nextValidator = next;
         return nextValidator;
     }
 

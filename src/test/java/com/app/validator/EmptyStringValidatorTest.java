@@ -31,7 +31,7 @@ class EmptyStringValidatorTest {
     }
 
     @Test
-    void checkEmptyString()  {
+    void checkEmptyString() {
 
         Exception exception = assertThrows(InvalidStringException.class, () -> {
             emptyStringValidator.validate(TestDataHelper.EMPTY_STRING);
@@ -45,7 +45,7 @@ class EmptyStringValidatorTest {
     }
 
     @Test
-    void checkNullString()  {
+    void checkNullString() {
 
         Exception exception = assertThrows(InvalidStringException.class, () -> {
             emptyStringValidator.validate(TestDataHelper.NULL_STRING);

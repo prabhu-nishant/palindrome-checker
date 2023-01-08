@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.app.service.PalindromeServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-08T18:33:50" hostname="DESKTOP-5R8V3B7" time="0.0">
+  <properties/>
+  <testcase name="checkIfValueIsPalindrome()" classname="com.app.service.PalindromeServiceTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

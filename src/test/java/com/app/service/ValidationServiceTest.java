@@ -17,7 +17,7 @@ class ValidationServiceTest {
     private ValidationService validationService;
 
     @BeforeAll
-    void setUp(){
+    void setUp() {
         validationService = new ValidationService();
     }
 
@@ -27,7 +27,7 @@ class ValidationServiceTest {
     }
 
     @Test
-    void checkInValidString()  {
+    void checkInValidString() {
 
         Exception exception = assertThrows(InvalidStringException.class, () -> {
             validationService.isValidString(TestDataHelper.EMPTY_STRING);
