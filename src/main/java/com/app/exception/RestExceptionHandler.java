@@ -1,7 +1,6 @@
 package com.app.exception;
 
 import com.app.entities.ApiError;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
