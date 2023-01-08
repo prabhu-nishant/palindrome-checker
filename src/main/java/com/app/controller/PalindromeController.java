@@ -18,17 +18,9 @@ public class PalindromeController {
 
     @ResponseBody
     @RequestMapping(value = "/palindrome", method = RequestMethod.POST)
-    public UserDetails checkPalindrome(@RequestBody UserDetails userDetails){
+    public UserDetails checkPalindrome(@RequestBody UserDetails userDetails) throws Exception {
 
-        try {
-
-            validationService.isValidString(userDetails.getValue());
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        validationService.isValidString(userDetails.getValue());
         return userDetails;
     }
 }
