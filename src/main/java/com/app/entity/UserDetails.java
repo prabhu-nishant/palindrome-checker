@@ -1,4 +1,4 @@
-package com.app.entities;
+package com.app.entity;
 
 public class UserDetails {
 
@@ -6,7 +6,7 @@ public class UserDetails {
 
     private String value;
 
-    private boolean isValuePalindrome;
+    private boolean isPalindrome;
 
     public String getUserName() {
         return userName;
@@ -24,12 +24,13 @@ public class UserDetails {
         this.value = value;
     }
 
-    public boolean getIsValuePalindrome() {
-        return isValuePalindrome;
+    public boolean isPalindrome() {
+        return isPalindrome;
     }
 
-    public void setIsValuePalindrome(boolean isValuePalindrome) {
-        this.isValuePalindrome = isValuePalindrome;
+    public void setPalindrome(boolean palindrome) {
+        this.isPalindrome = palindrome;
     }
+
 
 }

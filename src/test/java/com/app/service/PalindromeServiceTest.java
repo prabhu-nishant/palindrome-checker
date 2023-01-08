@@ -12,7 +12,7 @@ class PalindromeServiceTest {
 
     @BeforeAll
     void setUp() {
-        palindromeService = new PalindromeService();
+        palindromeService = new PalindromeServiceImpl();
     }
 
     @Test

@@ -18,7 +18,7 @@ class ValidationServiceTest {
 
     @BeforeAll
     void setUp() {
-        validationService = new ValidationService();
+        validationService = new ValidationServiceImpl();
     }
 
     @Test

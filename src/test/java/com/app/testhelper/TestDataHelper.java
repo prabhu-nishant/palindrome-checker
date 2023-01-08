@@ -1,6 +1,6 @@
 package com.app.testhelper;
 
-import com.app.entities.UserDetails;
+import com.app.entity.UserDetails;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -33,7 +33,7 @@ public class TestDataHelper {
         UserDetails userDetails = new UserDetails();
         userDetails.setUserName("abc");
         userDetails.setValue("madam");
-        userDetails.setIsValuePalindrome(true);
+        userDetails.setPalindrome(true);
 
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(userDetails);
