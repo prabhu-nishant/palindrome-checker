@@ -36,7 +36,7 @@ class PalindromeControllerTest {
         assertEquals(200, status);
 
         String content = mvcResult.getResponse().getContentAsString();
-        System.out.println(content);
+        assertEquals(TestDataHelper.getExpectedResultUserDetails(),content);
     }
 
 }

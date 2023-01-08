@@ -16,4 +16,17 @@ public class TestDataHelper {
         return mapper.writeValueAsString(userDetails);
 
     }
+
+    public static String getExpectedResultUserDetails() throws JsonProcessingException {
+
+        UserDetails userDetails = new UserDetails();
+        userDetails.setUserName("abc");
+        userDetails.setValue("madam");
+        userDetails.setIsValuePalindrome(true);
+
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(userDetails);
+
+    }
+
 }
