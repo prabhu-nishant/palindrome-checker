@@ -12,7 +12,9 @@ public class TestDataHelper {
 
     public static String NULL_STRING = null;
 
-    public static String NUMBER_STRING = "madam123";
+    public static String ALPHA_NUMERIC_STRING = "madam123";
+
+    public static String NUMERIC_STRING = "12345";
 
 
     public static String getTestUserDetails() throws JsonProcessingException {

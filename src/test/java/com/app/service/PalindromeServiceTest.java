@@ -11,18 +11,18 @@ class PalindromeServiceTest {
     private PalindromeService palindromeService;
 
     @BeforeAll
-    public void setUp(){
+    void setUp(){
         palindromeService = new PalindromeService();
     }
 
     @Test
-    public void checkIfValueIsPalindrome(){
+    void checkIfValueIsPalindrome(){
         palindromeService.checkIfValueIsPalindrome("");
 
     }
 
     @AfterAll
-    public void tearDown() {
+    void tearDown() {
         palindromeService = null;
     }
 

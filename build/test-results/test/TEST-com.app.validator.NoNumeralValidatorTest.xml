@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.app.validator.NoNumeralValidatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-08T15:58:16" hostname="DESKTOP-5R8V3B7" time="0.029">
+  <properties/>
+  <testcase name="checkNumericString()" classname="com.app.validator.NoNumeralValidatorTest" time="0.026"/>
+  <testcase name="checkAlphabeticString()" classname="com.app.validator.NoNumeralValidatorTest" time="0.001"/>
+  <testcase name="checkAlphaNumericString()" classname="com.app.validator.NoNumeralValidatorTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

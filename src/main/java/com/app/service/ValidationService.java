@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class ValidationService {
 
-    public boolean isValidString(String value) throws Exception {
+    private final IValidator validator ;
 
-        IValidator validator = new EmptyStringValidator();
+    public ValidationService(){
+        validator = new EmptyStringValidator();
         validator.setNext(new NoNumeralValidator());
+    }
+
+    public void isValidString(String value) throws Exception {
+
         validator.validate(value);
-        return true;
 
     }
 }

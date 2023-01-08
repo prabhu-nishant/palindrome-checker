@@ -16,20 +16,17 @@ class ValidationServiceTest {
     private ValidationService validationService;
 
     @BeforeAll
-    public void setUp(){
+    void setUp(){
         validationService = new ValidationService();
     }
 
     @Test
-    public void checkValidString() throws Exception {
-
-        boolean isValidString = validationService.isValidString(TestDataHelper.VALID_TEST_STRING);
-        assertEquals(true,isValidString);
-
+    void checkValidString() throws Exception {
+        validationService.isValidString(TestDataHelper.VALID_TEST_STRING);
     }
 
     @Test
-    public void checkEmptyString()  {
+    void checkInValidString()  {
 
         Exception exception = assertThrows(InvalidStringException.class, () -> {
             validationService.isValidString(TestDataHelper.EMPTY_STRING);
@@ -42,36 +39,8 @@ class ValidationServiceTest {
 
     }
 
-    @Test
-    public void checkNullString()  {
-
-        Exception exception = assertThrows(InvalidStringException.class, () -> {
-            validationService.isValidString(TestDataHelper.NULL_STRING);
-        });
-
-        String expectedMessage = Utils.EMPTY_STRING_ERROR_MESSAGE;
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
-
-    }
-
-    @Test
-    public void checkNumberString() {
-
-        Exception exception = assertThrows(InvalidStringException.class, () -> {
-            validationService.isValidString(TestDataHelper.NUMBER_STRING);
-        });
-
-        String expectedMessage = Utils.NUMBERS_STRING_ERROR_MESSAGE;
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
-
-    }
-
     @AfterAll
-    public void tearDown() {
+    void tearDown() {
         validationService = null;
     }
 }

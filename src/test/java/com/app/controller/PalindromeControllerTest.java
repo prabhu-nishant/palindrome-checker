@@ -22,7 +22,7 @@ class PalindromeControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void checkPalindrome() throws Exception {
+    void checkPalindrome() throws Exception {
         String uri = "/api/palindrome";
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(TestDataHelper.getTestUserDetails())).andReturn();
 
