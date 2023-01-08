@@ -2,7 +2,7 @@ package com.app.service;
 
 import com.app.exception.InvalidStringException;
 import com.app.testhelper.TestDataHelper;
-import com.app.utils.Utils;
+import com.app.util.Utils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.app.utils;
+package com.app.util;
 
 import org.springframework.util.StringUtils;
 

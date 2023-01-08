@@ -1,7 +1,7 @@
 package com.app.validator;
 
 import com.app.exception.InvalidStringException;
-import com.app.utils.Utils;
+import com.app.util.Utils;
 
 public class NoNumeralValidator extends AbstractValidator<String> {
 
