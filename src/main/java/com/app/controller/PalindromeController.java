@@ -21,7 +21,10 @@ public class PalindromeController {
     public UserDetails checkPalindrome(@RequestBody UserDetails userDetails){
 
         try {
+
             validationService.isValidString(userDetails.getValue());
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
