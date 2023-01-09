@@ -1,6 +1,6 @@
 package com.app.exception;
 
-import com.app.entity.ApiError;
+import com.app.error.ApiError;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;

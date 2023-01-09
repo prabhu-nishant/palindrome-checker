@@ -1,4 +1,4 @@
-package com.app.entity;
+package com.app.error;
 
 import com.app.util.LowerCaseClassNameResolver;
 import com.fasterxml.jackson.annotation.JsonFormat;

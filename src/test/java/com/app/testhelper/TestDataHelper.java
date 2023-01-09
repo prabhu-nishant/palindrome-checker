@@ -31,7 +31,7 @@ public class TestDataHelper {
     public static String getTestUserDetails() throws JsonProcessingException {
 
         UserDetails userDetails = new UserDetails();
-        userDetails.setUserName("abc");
+        userDetails.setUsername("abc");
         userDetails.setValue("madam");
 
         ObjectMapper mapper = new ObjectMapper();
@@ -42,7 +42,7 @@ public class TestDataHelper {
     public static String getExpectedResultUserDetails() throws JsonProcessingException {
 
         UserDetails userDetails = new UserDetails();
-        userDetails.setUserName("abc");
+        userDetails.setUsername("abc");
         userDetails.setValue("madam");
         userDetails.setPalindrome(true);
 
