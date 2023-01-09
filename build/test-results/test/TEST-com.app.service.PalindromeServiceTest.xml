@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.service.PalindromeServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-01-08T23:26:37" hostname="DESKTOP-5R8V3B7" time="0.219">
+<testsuite name="com.app.service.PalindromeServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-01-09T15:31:36" hostname="DESKTOP-5R8V3B7" time="0.232">
   <properties/>
-  <testcase name="checkIfValueIsPalindrome_WithCacheHit_AndStringIsNotPalindrome()" classname="com.app.service.PalindromeServiceTest" time="0.211"/>
+  <testcase name="checkIfValueIsPalindrome_WithCacheHit_AndStringIsNotPalindrome()" classname="com.app.service.PalindromeServiceTest" time="0.225"/>
   <testcase name="checkIfValueIsPalindrome_WithCacheHit_AndStringIsPalindrome()" classname="com.app.service.PalindromeServiceTest" time="0.002"/>
   <testcase name="checkIfValueIsPalindrome_WithCacheMiss_AndStringIsNotPalindrome()" classname="com.app.service.PalindromeServiceTest" time="0.002"/>
-  <testcase name="checkIfValueIsPalindrome_WithCacheMiss_AndStringIsPalindrome()" classname="com.app.service.PalindromeServiceTest" time="0.003"/>
+  <testcase name="checkIfValueIsPalindrome_WithCacheMiss_AndStringIsPalindrome()" classname="com.app.service.PalindromeServiceTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

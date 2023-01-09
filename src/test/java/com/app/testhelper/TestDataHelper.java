@@ -39,6 +39,24 @@ public class TestDataHelper {
 
     }
 
+    public static String getTestInvalidUserDetails()  {
+
+        String invalidUserDetails = "{\"username\": \"bob\", \"value\" : \"madam\" , }";
+        return invalidUserDetails;
+
+    }
+
+    public static String getTestUserDetailsWithInvalidString() throws JsonProcessingException {
+
+        UserDetails userDetails = new UserDetails();
+        userDetails.setUsername("Johnny");
+        userDetails.setValue("");
+
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(userDetails);
+
+    }
+
     public static String getExpectedResultUserDetails() throws JsonProcessingException {
 
         UserDetails userDetails = new UserDetails();
@@ -51,14 +69,14 @@ public class TestDataHelper {
 
     }
 
-    public static Optional<PalindromeDetails> getTestStringPalindromeDetails()  {
+    public static Optional<PalindromeDetails> getTestStringPalindromeDetails() {
         PalindromeDetails palindromeDetails = new PalindromeDetails();
         palindromeDetails.setInputString(PALINDROME_STRING);
         palindromeDetails.setPalindrome(IS_PALINDROME_TRUE);
         return Optional.of(palindromeDetails);
     }
 
-    public static Optional<PalindromeDetails> getTestStringNotPalindromeDetails()  {
+    public static Optional<PalindromeDetails> getTestStringNotPalindromeDetails() {
         PalindromeDetails palindromeDetails = new PalindromeDetails();
         palindromeDetails.setInputString(NOT_A_PALINDROME_STRING);
         palindromeDetails.setPalindrome(IS_PALINDROME_FALSE);

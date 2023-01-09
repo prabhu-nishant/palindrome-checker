@@ -24,7 +24,7 @@ class PalindromeControllerTest {
     @Test
     void checkPalindrome() throws Exception {
         String uri = "/api/palindrome";
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(TestDataHelper.getTestUserDetails())).andReturn();
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post(uri).contentType(MediaType.APPLICATION_JSON).content(TestDataHelper.getTestUserDetails())).andReturn();
 
         int status = mvcResult.getResponse().getStatus();
         assertEquals(200, status);

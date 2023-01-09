@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.app.exception.RestExceptionHandlerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-09T15:31:36" hostname="DESKTOP-5R8V3B7" time="0.215">
+  <properties/>
+  <testcase name="handleHttpMessageNotReadable()" classname="com.app.exception.RestExceptionHandlerTest" time="0.191"/>
+  <testcase name="handleInvalidString()" classname="com.app.exception.RestExceptionHandlerTest" time="0.01"/>
+  <testcase name="handleHttpMediaTypeNotSupported()" classname="com.app.exception.RestExceptionHandlerTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
