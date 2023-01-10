@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.ServletWebRequest;
@@ -33,7 +34,28 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      * @param status
      * @param request
      * @return
-     * @implNote The method handles is an override to invalid media type exception.
+     *  @implNote The method is an override to handle invalid media type exception.
+     */
+
+    @Override
+    protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(
+            HttpRequestMethodNotSupportedException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(ex.getMethod());
+        builder.append(" method is not supported. Supported method is ");
+        ex.getSupportedHttpMethods().forEach(t -> builder.append(t).append(", "));
+        ApiError apiError = new ApiError(HttpStatus.METHOD_NOT_ALLOWED, builder.substring(0, builder.length() - 2), ex);
+        log.error(apiError.toString());
+        return buildResponseEntity(apiError);
+    }
+    /**
+     *
+     * @param ex
+     * @param headers
+     * @param status
+     * @param request
+     * @return
+     * @implNote The method is an override to handle invalid media type exception.
      */
     @Override
     protected ResponseEntity<Object> handleHttpMediaTypeNotSupported(
@@ -54,7 +76,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      * @param status
      * @param request
      * @return
-     * @implNote The method handles is an override to invalid or malformed message received.
+     * @implNote The method  is an override to handle invalid or malformed message received.
      */
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {

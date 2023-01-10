@@ -29,6 +29,8 @@ public class TestDataHelper {
 
     public static final boolean IS_PALINDROME_FALSE = false;
 
+    public static final String URI = "/api/palindrome";
+
 
     public static String getTestUserDetails() throws JsonProcessingException {
 

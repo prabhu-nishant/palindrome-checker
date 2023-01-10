@@ -21,9 +21,19 @@ class RestExceptionHandlerTest {
     private MockMvc mockMvc;
 
     @Test
+    void handleHttpRequestMethodNotSupported() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get(TestDataHelper.URI)
+                .content(TestDataHelper.getTestInvalidUserDetails())
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isMethodNotAllowed())
+                .andExpect(MockMvcResultMatchers.content()
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.jsonPath("$['apierror']['message']").value("GET method is not supported. Supported method is POST"));
+    }
+
+    @Test
     void handleHttpMediaTypeNotSupported() throws Exception {
-        String uri = "/api/palindrome";
-        mockMvc.perform(MockMvcRequestBuilders.post(uri)
+        mockMvc.perform(MockMvcRequestBuilders.post(TestDataHelper.URI)
                         .content(TestDataHelper.getTestUserDetails())
                         .contentType(MediaType.TEXT_PLAIN))
                 .andExpect(MockMvcResultMatchers.status().isUnsupportedMediaType())
@@ -35,8 +45,7 @@ class RestExceptionHandlerTest {
 
     @Test
     void handleHttpMessageNotReadable() throws Exception {
-        String uri = "/api/palindrome";
-        mockMvc.perform(MockMvcRequestBuilders.post(uri)
+        mockMvc.perform(MockMvcRequestBuilders.post(TestDataHelper.URI)
                         .content(TestDataHelper.getTestInvalidUserDetails())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
@@ -47,8 +56,7 @@ class RestExceptionHandlerTest {
 
     @Test
     void handleInvalidString() throws Exception {
-        String uri = "/api/palindrome";
-        mockMvc.perform(MockMvcRequestBuilders.post(uri)
+        mockMvc.perform(MockMvcRequestBuilders.post(TestDataHelper.URI)
                         .content(TestDataHelper.getTestUserDetailsWithInvalidString())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
