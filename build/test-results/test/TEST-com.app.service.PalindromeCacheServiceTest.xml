@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.service.PalindromeCacheServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-10T16:42:51" hostname="DESKTOP-5R8V3B7" time="0.499">
-  <properties/>
-  <testcase name="saveValueToCache()" classname="com.app.service.PalindromeCacheServiceTest" time="0.484"/>
-  <testcase name="getValueFromCache()" classname="com.app.service.PalindromeCacheServiceTest" time="0.008"/>
-  <testcase name="populateCache()" classname="com.app.service.PalindromeCacheServiceTest" time="0.005"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
