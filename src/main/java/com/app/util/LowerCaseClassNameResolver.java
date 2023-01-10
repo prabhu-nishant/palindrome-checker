@@ -3,6 +3,10 @@ package com.app.util;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.jsontype.impl.TypeIdResolverBase;
 
+/**
+ * @author prabh
+ *
+ **/
 public class LowerCaseClassNameResolver extends TypeIdResolverBase {
 
     @Override

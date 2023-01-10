@@ -7,6 +7,11 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author prabh
+ * @implNote This is an entity which is being will be persisted in the data store.
+ * The getters and setters for the variables are auto handled with @Data annotation.
+ */
 @Data
 @Entity
 public class PalindromeDetails implements Serializable {

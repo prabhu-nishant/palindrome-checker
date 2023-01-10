@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * @author prabh
+ * @implNote This class implements the palindrome service.
+ */
 @Service
 @Slf4j
 public class PalindromeServiceImpl implements PalindromeService {

@@ -15,11 +15,26 @@ import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+/**
+ * @author prabh
+ * @implNote This is a controller advice that handles all the exceptions thrown in the application.
+ * Instead of handling exceptions at multiple places within the app, we handle all of them here and present
+ * a meaningful response to the end user.
+ */
 @ControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @Slf4j
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
+    /**
+     *
+     * @param ex
+     * @param headers
+     * @param status
+     * @param request
+     * @return
+     * @implNote The method handles is an override to invalid media type exception.
+     */
     @Override
     protected ResponseEntity<Object> handleHttpMediaTypeNotSupported(
             HttpMediaTypeNotSupportedException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
@@ -32,6 +47,15 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(apiError);
     }
 
+    /**
+     *
+     * @param ex
+     * @param headers
+     * @param status
+     * @param request
+     * @return
+     * @implNote The method handles is an override to invalid or malformed message received.
+     */
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         ServletWebRequest servletWebRequest = (ServletWebRequest) request;
@@ -41,6 +65,13 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(apiError);
     }
 
+
+    /**
+     *
+     * @param ex
+     * @return
+     * @implNote This is a custom Exception class for invalid strings
+     */
     @ExceptionHandler(InvalidStringException.class)
     protected ResponseEntity<Object> handleInvalidString(InvalidStringException ex) {
         ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, ex.getMessage());

@@ -1,5 +1,9 @@
 package com.app.util;
 
+/**
+ * @author prabh
+ * @implNote The ErrorCodes is an Enum of all the error codes the application wants to show to the end user.
+ */
 public enum ErrorCodes {
     EMPTY_STRING_ERROR_MESSAGE("ERR_0001","Entered value is empty or contains spaces.Please re-enter the correct string!"),
     NUMBERS_STRING_ERROR_MESSAGE("ERR_0002","Entered value contains numbers.Please re-enter the correct string!");

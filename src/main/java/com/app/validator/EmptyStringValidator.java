@@ -5,6 +5,10 @@ import com.app.util.ErrorCodes;
 import com.app.util.Utils;
 import org.springframework.util.StringUtils;
 
+/**
+ * @author prabh
+ * @implNote EmptyStringValidator checks if the given string is null or empty.
+ */
 public class EmptyStringValidator extends AbstractValidator<String> {
 
     @Override

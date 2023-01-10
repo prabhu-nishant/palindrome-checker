@@ -4,6 +4,10 @@ import com.app.exception.InvalidStringException;
 import com.app.util.ErrorCodes;
 import com.app.util.Utils;
 
+/**
+ * @author prabh
+ * @implNote NoNumeralValidator checks if the given string contains numerals.
+ */
 public class NoNumeralValidator extends AbstractValidator<String> {
 
     @Override

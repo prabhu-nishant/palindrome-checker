@@ -1,5 +1,10 @@
 package com.app.validator;
 
+/**
+ * @author prabh
+ * @implNote AbstractValidator implements the IValidator interface to override its methods and set next validators in the chain.
+ * @param <T>
+ */
 public abstract class AbstractValidator<T> implements IValidator<T> {
 
     private IValidator<T> nextValidator;
