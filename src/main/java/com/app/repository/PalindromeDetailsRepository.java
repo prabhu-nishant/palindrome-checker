@@ -1,6 +1,6 @@
 package com.app.repository;
 
-import com.app.entity.PalindromeDetails;
+import com.app.model.PalindromeDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

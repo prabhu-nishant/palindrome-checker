@@ -2,6 +2,7 @@ package com.app.validator;
 
 import com.app.exception.InvalidStringException;
 import com.app.testhelper.TestDataHelper;
+import com.app.util.ErrorCodes;
 import com.app.util.Utils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -37,7 +38,7 @@ class EmptyStringValidatorTest {
             emptyStringValidator.validate(TestDataHelper.EMPTY_STRING);
         });
 
-        String expectedMessage = Utils.EMPTY_STRING_ERROR_MESSAGE;
+        String expectedMessage = ErrorCodes.EMPTY_STRING_ERROR_MESSAGE.toString();
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -51,7 +52,7 @@ class EmptyStringValidatorTest {
             emptyStringValidator.validate(TestDataHelper.NULL_STRING);
         });
 
-        String expectedMessage = Utils.EMPTY_STRING_ERROR_MESSAGE;
+        String expectedMessage = ErrorCodes.EMPTY_STRING_ERROR_MESSAGE.toString();
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));

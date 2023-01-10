@@ -1,10 +1,12 @@
 package com.app.testhelper;
 
-import com.app.entity.PalindromeDetails;
-import com.app.entity.UserDetails;
+import com.app.model.PalindromeDetails;
+import com.app.model.UserDetails;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class TestDataHelper {
@@ -39,7 +41,7 @@ public class TestDataHelper {
 
     }
 
-    public static String getTestInvalidUserDetails()  {
+    public static String getTestInvalidUserDetails() {
 
         String invalidUserDetails = "{\"username\": \"bob\", \"value\" : \"madam\" , }";
         return invalidUserDetails;
@@ -83,4 +85,35 @@ public class TestDataHelper {
         return Optional.of(palindromeDetails);
     }
 
+    public static PalindromeDetails getPalindromeCacheValue() {
+        PalindromeDetails palindromeDetails = new PalindromeDetails();
+        palindromeDetails.setInputString(PALINDROME_STRING);
+        palindromeDetails.setPalindrome(IS_PALINDROME_TRUE);
+        return palindromeDetails;
+    }
+
+    public static PalindromeDetails getNotAPalindromeCacheValue() {
+        PalindromeDetails palindromeDetails = new PalindromeDetails();
+        palindromeDetails.setInputString(NOT_A_PALINDROME_STRING);
+        palindromeDetails.setPalindrome(IS_PALINDROME_FALSE);
+        return palindromeDetails;
+    }
+
+    public static List<PalindromeDetails> getCacheValuesList() {
+
+        List<PalindromeDetails> list = new ArrayList<PalindromeDetails>();
+
+        PalindromeDetails palindromeDetails_1 = new PalindromeDetails();
+        palindromeDetails_1.setInputString(PALINDROME_STRING);
+        palindromeDetails_1.setPalindrome(IS_PALINDROME_TRUE);
+
+        PalindromeDetails palindromeDetails_2 = new PalindromeDetails();
+        palindromeDetails_2.setInputString(NOT_A_PALINDROME_STRING);
+        palindromeDetails_2.setPalindrome(IS_PALINDROME_FALSE);
+
+        list.add(palindromeDetails_1);
+        list.add(palindromeDetails_2);
+
+        return list;
+    }
 }

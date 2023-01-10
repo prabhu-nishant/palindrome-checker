@@ -1,13 +1,17 @@
 package com.app.controller;
 
-import com.app.entity.UserDetails;
+import com.app.model.UserDetails;
 import com.app.service.PalindromeService;
 import com.app.service.ValidationService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
+@Slf4j
 public class PalindromeController {
 
     @Autowired
@@ -25,6 +29,5 @@ public class PalindromeController {
         userDetails.setPalindrome(isPalindrome);
         return userDetails;
     }
-
 
 }

@@ -2,17 +2,15 @@ package com.app.exception;
 
 import com.app.main.PalindromeApplication;
 import com.app.testhelper.TestDataHelper;
+import com.app.util.ErrorCodes;
 import com.app.util.Utils;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest(classes = PalindromeApplication.class)
@@ -48,7 +46,7 @@ class RestExceptionHandlerTest {
     }
 
     @Test
-    void handleInvalidString() throws Exception{
+    void handleInvalidString() throws Exception {
         String uri = "/api/palindrome";
         mockMvc.perform(MockMvcRequestBuilders.post(uri)
                         .content(TestDataHelper.getTestUserDetailsWithInvalidString())
@@ -56,6 +54,7 @@ class RestExceptionHandlerTest {
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
                 .andExpect(MockMvcResultMatchers.content()
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.jsonPath("$['apierror']['message']").value(Utils.EMPTY_STRING_ERROR_MESSAGE));;
+                .andExpect(MockMvcResultMatchers.jsonPath("$['apierror']['message']").value(ErrorCodes.EMPTY_STRING_ERROR_MESSAGE.toString()));
+        ;
     }
 }

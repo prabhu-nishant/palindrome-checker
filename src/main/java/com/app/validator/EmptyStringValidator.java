@@ -1,6 +1,7 @@
 package com.app.validator;
 
 import com.app.exception.InvalidStringException;
+import com.app.util.ErrorCodes;
 import com.app.util.Utils;
 import org.springframework.util.StringUtils;
 
@@ -10,7 +11,7 @@ public class EmptyStringValidator extends AbstractValidator<String> {
     public void validate(String value) throws Exception {
 
         if (!StringUtils.hasLength(value)) {
-            throw new InvalidStringException(Utils.EMPTY_STRING_ERROR_MESSAGE);
+            throw new InvalidStringException(ErrorCodes.EMPTY_STRING_ERROR_MESSAGE.toString());
         }
 
         if (getNextValidator() != null) {

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.exception.RestExceptionHandlerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-09T15:31:36" hostname="DESKTOP-5R8V3B7" time="0.215">
+<testsuite name="com.app.exception.RestExceptionHandlerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-10T16:16:35" hostname="DESKTOP-5R8V3B7" time="0.214">
   <properties/>
-  <testcase name="handleHttpMessageNotReadable()" classname="com.app.exception.RestExceptionHandlerTest" time="0.191"/>
-  <testcase name="handleInvalidString()" classname="com.app.exception.RestExceptionHandlerTest" time="0.01"/>
+  <testcase name="handleHttpMessageNotReadable()" classname="com.app.exception.RestExceptionHandlerTest" time="0.187"/>
+  <testcase name="handleInvalidString()" classname="com.app.exception.RestExceptionHandlerTest" time="0.011"/>
   <testcase name="handleHttpMediaTypeNotSupported()" classname="com.app.exception.RestExceptionHandlerTest" time="0.012"/>
-  <system-out><![CDATA[]]></system-out>
+  <system-out><![CDATA[2023-01-10T16:16:35.701Z ERROR 24704 --- [    Test worker] com.app.exception.RestExceptionHandler   : ApiError(status=400 BAD_REQUEST, timestamp=2023-01-10T16:16:35.683337400, message=Malformed JSON request, debugMessage=JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name)
+2023-01-10T16:16:35.854Z ERROR 24704 --- [    Test worker] com.app.exception.RestExceptionHandler   : ApiError(status=400 BAD_REQUEST, timestamp=2023-01-10T16:16:35.854557800, message=Entered value is empty or contains spaces.Please re-enter the correct string!, debugMessage=null)
+2023-01-10T16:16:35.868Z ERROR 24704 --- [    Test worker] com.app.exception.RestExceptionHandler   : ApiError(status=415 UNSUPPORTED_MEDIA_TYPE, timestamp=2023-01-10T16:16:35.868644900, message=text/plain;charset=UTF-8 media type is not supported. Supported media types are application/json, application/*+json, debugMessage=Content-Type 'text/plain;charset=UTF-8' is not supported)
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
