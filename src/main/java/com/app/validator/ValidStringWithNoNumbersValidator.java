@@ -4,7 +4,7 @@ import com.app.util.Utils;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class ValidStringWithNoNumbersValidator implements ConstraintValidator<ValidStringWithNoNumbers,String> {
+public class ValidStringWithNoNumbersValidator implements ConstraintValidator<ValidStringWithNoNumbers, String> {
     @Override
     public void initialize(ValidStringWithNoNumbers constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
@@ -14,7 +14,7 @@ public class ValidStringWithNoNumbersValidator implements ConstraintValidator<Va
     public boolean isValid(String value, ConstraintValidatorContext context) {
         boolean isValid = true;
 
-        if(Utils.doesStringContainNumbers(value)){
+        if (Utils.doesStringContainNumbers(value)) {
             isValid = false;
         }
 

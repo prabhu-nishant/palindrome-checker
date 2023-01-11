@@ -1,19 +1,16 @@
 package com.app.validator;
 
-import com.app.service.PalindromeServiceImpl;
-import jakarta.validation.Validator;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.web.servlet.MockMvc;
 
-@ExtendWith(MockitoExtension.class)
 public class ValidatorTest {
 
-    private Validator validator;
+    @Autowired
+    private MockMvc mockMvc;
 
     @BeforeAll
     void setUp() {
-
 
 
     }

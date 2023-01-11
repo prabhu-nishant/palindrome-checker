@@ -33,21 +33,21 @@ class PalindromeCacheServiceTest {
     @Test
     void saveValueToCache() {
         Mockito.when(palindromeDetailsRepository.saveAndFlush(Mockito.any())).thenReturn(TestDataHelper.getPalindromeCacheValue());
-        assertEquals(TestDataHelper.getPalindromeCacheValue(),palindromeCacheService.saveValueToCache(TestDataHelper.getPalindromeCacheValue(),TestDataHelper.PALINDROME_STRING));
+        assertEquals(TestDataHelper.getPalindromeCacheValue(), palindromeCacheService.saveValueToCache(TestDataHelper.getPalindromeCacheValue(), TestDataHelper.PALINDROME_STRING));
     }
 
     @Test
     void getValueFromCache() {
         Mockito.when(palindromeDetailsRepository.findById(Mockito.any())).thenReturn(Optional.of(TestDataHelper.getPalindromeCacheValue()));
-        assertEquals(Optional.of(TestDataHelper.getPalindromeCacheValue()),palindromeCacheService.getValueFromCache(TestDataHelper.PALINDROME_STRING));
+        assertEquals(Optional.of(TestDataHelper.getPalindromeCacheValue()), palindromeCacheService.getValueFromCache(TestDataHelper.PALINDROME_STRING));
     }
 
     @Test
     void populateCache() {
         Mockito.when(palindromeDetailsRepository.findAll()).thenReturn(TestDataHelper.getCacheValuesList());
-        assertEquals(2,palindromeCacheService.getAllCacheValues().size());
-        assertEquals(TestDataHelper.getPalindromeCacheValue(),palindromeCacheService.getAllCacheValues().get(0));
-        assertEquals(TestDataHelper.getNotAPalindromeCacheValue(),palindromeCacheService.getAllCacheValues().get(1));
+        assertEquals(2, palindromeCacheService.getAllCacheValues().size());
+        assertEquals(TestDataHelper.getPalindromeCacheValue(), palindromeCacheService.getAllCacheValues().get(0));
+        assertEquals(TestDataHelper.getNotAPalindromeCacheValue(), palindromeCacheService.getAllCacheValues().get(1));
 
     }
 }

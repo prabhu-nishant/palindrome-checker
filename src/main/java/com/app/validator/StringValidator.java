@@ -15,7 +15,7 @@ public class StringValidator implements ConstraintValidator<ValidString, String>
 
         boolean isValid = true;
 
-        if(!StringUtils.hasLength(value) || StringUtils.containsWhitespace(value)) {
+        if (!StringUtils.hasLength(value) || StringUtils.containsWhitespace(value)) {
             isValid = false;
         }
         return isValid;

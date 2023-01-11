@@ -2,7 +2,6 @@ package com.app.exception;
 
 import com.app.main.PalindromeApplication;
 import com.app.testhelper.TestDataHelper;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -22,8 +21,8 @@ class RestExceptionHandlerTest {
     @Test
     void handleHttpRequestMethodNotSupported() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(TestDataHelper.URI)
-                .content(TestDataHelper.getTestInvalidUserDetails())
-                .contentType(MediaType.APPLICATION_JSON))
+                        .content(TestDataHelper.getTestInvalidUserDetails())
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isMethodNotAllowed())
                 .andExpect(MockMvcResultMatchers.content()
                         .contentType(MediaType.APPLICATION_JSON))

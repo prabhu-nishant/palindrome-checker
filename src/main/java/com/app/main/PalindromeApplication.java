@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * @author prabh
- * @implNote  This is the Spring boot main class.
+ * @implNote This is the Spring boot main class.
  */
 @SpringBootApplication
 @EntityScan(basePackages = {"com.app"})

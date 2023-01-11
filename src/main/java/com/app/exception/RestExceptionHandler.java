@@ -27,7 +27,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @Slf4j
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
-    /** Handle HttpRequestMethodNotSupportedException. This one triggers when invalid method is used.
+    /**
+     * Handle HttpRequestMethodNotSupportedException. This one triggers when invalid method is used.
      *
      * @param ex
      * @param headers
