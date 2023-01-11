@@ -2,7 +2,7 @@ package com.app.controller;
 
 import com.app.model.UserDetails;
 import com.app.service.PalindromeService;
-import com.app.service.ValidationService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +20,6 @@ public class PalindromeController {
     @Autowired
     private PalindromeService palindromeService;
 
-    @Autowired
-    private ValidationService validationService;
-
     /**
      * @implNote The method checks whether "value" field supplied in the userDetails json is palindrome or not.
      * @param userDetails in json format
@@ -32,9 +29,8 @@ public class PalindromeController {
      */
     @ResponseBody
     @RequestMapping(value = "/palindrome", method = RequestMethod.POST)
-    public UserDetails checkPalindrome(@RequestBody UserDetails userDetails) throws Exception {
+    public UserDetails checkPalindrome(@Valid @RequestBody UserDetails userDetails) throws Exception {
 
-        validationService.isValidString(userDetails.getValue());
         boolean isPalindrome = palindromeService.checkIfValueIsPalindrome(userDetails.getValue());
         userDetails.setPalindrome(isPalindrome);
         return userDetails;

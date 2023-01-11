@@ -1,5 +1,7 @@
 package com.app.model;
 
+import com.app.validator.ValidString;
+import com.app.validator.ValidStringWithNoNumbers;
 import lombok.Data;
 
 /**
@@ -10,8 +12,11 @@ import lombok.Data;
 @Data
 public class UserDetails {
 
+    @ValidString (message = "The username should not be empty or contain whitespaces")
     private String username;
 
+    @ValidString (message = "The value should not be empty or contain whitespaces")
+    @ValidStringWithNoNumbers (message = "The value should not contain numbers")
     private String value;
 
     private boolean isPalindrome;

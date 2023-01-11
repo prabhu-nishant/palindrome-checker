@@ -10,8 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
@@ -27,19 +27,18 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @Slf4j
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
-    /**
+    /** Handle HttpRequestMethodNotSupportedException. This one triggers when invalid method is used.
      *
      * @param ex
      * @param headers
      * @param status
      * @param request
      * @return
-     *  @implNote The method is an override to handle invalid media type exception.
      */
-
     @Override
     protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(
             HttpRequestMethodNotSupportedException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+
         StringBuilder builder = new StringBuilder();
         builder.append(ex.getMethod());
         builder.append(" method is not supported. Supported method is ");
@@ -48,14 +47,15 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         log.error(apiError.toString());
         return buildResponseEntity(apiError);
     }
+
     /**
+     * Handle HttpMediaTypeNotSupportedException. This one triggers when JSON is invalid as well.
      *
-     * @param ex
-     * @param headers
-     * @param status
-     * @param request
-     * @return
-     * @implNote The method is an override to handle invalid media type exception.
+     * @param ex      HttpMediaTypeNotSupportedException
+     * @param headers HttpHeaders
+     * @param status  HttpStatus
+     * @param request WebRequest
+     * @return the ApiError object
      */
     @Override
     protected ResponseEntity<Object> handleHttpMediaTypeNotSupported(
@@ -64,44 +64,48 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         builder.append(ex.getContentType());
         builder.append(" media type is not supported. Supported media types are ");
         ex.getSupportedMediaTypes().forEach(t -> builder.append(t).append(", "));
-        ApiError apiError = new ApiError(HttpStatus.UNSUPPORTED_MEDIA_TYPE, builder.substring(0, builder.length() - 2), ex);
-        log.error(apiError.toString());
-        return buildResponseEntity(apiError);
+        return buildResponseEntity(new ApiError(HttpStatus.UNSUPPORTED_MEDIA_TYPE, builder.substring(0, builder.length() - 2), ex));
     }
 
     /**
+     * Handle MethodArgumentNotValidException. Triggered when an object fails @Valid validation.
      *
-     * @param ex
-     * @param headers
-     * @param status
-     * @param request
-     * @return
-     * @implNote The method  is an override to handle invalid or malformed message received.
+     * @param ex      the MethodArgumentNotValidException that is thrown when @Valid validation fails
+     * @param headers HttpHeaders
+     * @param status  HttpStatus
+     * @param request WebRequest
+     * @return the ApiError object
      */
     @Override
-    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-        ServletWebRequest servletWebRequest = (ServletWebRequest) request;
-        String error = "Malformed JSON request";
-        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, error, ex);
-        log.error(apiError.toString());
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(
+            MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST);
+        apiError.setMessage("Validation error");
+        apiError.addValidationErrors(ex.getBindingResult().getFieldErrors());
+        apiError.addValidationError(ex.getBindingResult().getGlobalErrors());
         return buildResponseEntity(apiError);
     }
 
-
     /**
+     * Handle HttpMessageNotReadableException. Happens when request JSON is malformed.
      *
-     * @param ex
-     * @return
-     * @implNote This is a custom Exception class for invalid strings
+     * @param ex      HttpMessageNotReadableException
+     * @param headers HttpHeaders
+     * @param status  HttpStatus
+     * @param request WebRequest
+     * @return the ApiError object
      */
-    @ExceptionHandler(InvalidStringException.class)
-    protected ResponseEntity<Object> handleInvalidString(InvalidStringException ex) {
-        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, ex.getMessage());
-        log.error(apiError.toString());
-        return buildResponseEntity(apiError);
+    @Override
+    protected ResponseEntity<Object> handleHttpMessageNotReadable(
+            HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+        ServletWebRequest servletWebRequest = (ServletWebRequest) request;
+        log.info("{} to {}", servletWebRequest.getHttpMethod(), servletWebRequest.getRequest().getServletPath());
+        String error = "Malformed JSON request";
+        return buildResponseEntity(new ApiError(HttpStatus.BAD_REQUEST, error, ex));
     }
 
     private ResponseEntity<Object> buildResponseEntity(ApiError apiError) {
         return new ResponseEntity<>(apiError, apiError.getStatus());
     }
+
 }

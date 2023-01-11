@@ -2,8 +2,7 @@ package com.app.exception;
 
 import com.app.main.PalindromeApplication;
 import com.app.testhelper.TestDataHelper;
-import com.app.util.ErrorCodes;
-import com.app.util.Utils;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -44,6 +43,17 @@ class RestExceptionHandlerTest {
     }
 
     @Test
+    void handleMethodArgumentNotValid() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.post(TestDataHelper.URI)
+                        .content(TestDataHelper.getTestUserDetailsWithInvalidString())
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.content()
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.jsonPath("$['apierror']['message']").value("Validation error"));
+    }
+
+    @Test
     void handleHttpMessageNotReadable() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post(TestDataHelper.URI)
                         .content(TestDataHelper.getTestInvalidUserDetails())
@@ -54,15 +64,4 @@ class RestExceptionHandlerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$['apierror']['message']").value("Malformed JSON request"));
     }
 
-    @Test
-    void handleInvalidString() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.post(TestDataHelper.URI)
-                        .content(TestDataHelper.getTestUserDetailsWithInvalidString())
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andExpect(MockMvcResultMatchers.content()
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.jsonPath("$['apierror']['message']").value(ErrorCodes.EMPTY_STRING_ERROR_MESSAGE.toString()));
-        ;
-    }
 }
