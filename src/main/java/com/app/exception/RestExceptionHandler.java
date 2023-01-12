@@ -86,6 +86,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         apiError.setMessage("Validation error");
         apiError.addValidationErrors(ex.getBindingResult().getFieldErrors());
         apiError.addValidationError(ex.getBindingResult().getGlobalErrors());
+        log.error(apiError.toString());
         return buildResponseEntity(apiError);
     }
 
@@ -104,7 +105,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         ServletWebRequest servletWebRequest = (ServletWebRequest) request;
         log.info("{} to {}", servletWebRequest.getHttpMethod(), servletWebRequest.getRequest().getServletPath());
         String error = "Malformed JSON request";
-        return buildResponseEntity(new ApiError(HttpStatus.BAD_REQUEST, error, ex));
+        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, error, ex);
+        log.error(apiError.toString());
+        return buildResponseEntity(apiError);
     }
 
     private ResponseEntity<Object> buildResponseEntity(ApiError apiError) {

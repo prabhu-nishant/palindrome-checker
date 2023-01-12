@@ -1,6 +1,6 @@
 package com.app.service;
 
-import com.app.model.PalindromeDetails;
+import com.app.exception.model.PalindromeDetails;
 import com.app.testhelper.TestDataHelper;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

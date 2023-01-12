@@ -1,4 +1,4 @@
-package com.app.model;
+package com.app.exception.model;
 
 import com.app.validator.ValidString;
 import com.app.validator.ValidStringWithNoNumbers;

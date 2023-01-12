@@ -1,6 +1,6 @@
 package com.app.service;
 
-import com.app.model.PalindromeDetails;
+import com.app.exception.model.PalindromeDetails;
 
 import java.util.List;
 import java.util.Optional;

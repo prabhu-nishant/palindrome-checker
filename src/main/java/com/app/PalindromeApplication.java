@@ -15,10 +15,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * @implNote This is the Spring boot main class.
  */
 @SpringBootApplication
-@EntityScan(basePackages = {"com.app"})
-@EnableJpaRepositories(basePackages = {"com.app"})
-@ComponentScan(basePackages = {"com.app"})
-@EnableCaching
 @Slf4j
 public class PalindromeApplication {
 

@@ -1,6 +1,6 @@
 package com.app.service;
 
-import com.app.model.PalindromeDetails;
+import com.app.exception.model.PalindromeDetails;
 import com.app.util.Utils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
