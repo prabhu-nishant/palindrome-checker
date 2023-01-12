@@ -1,6 +1,6 @@
 package com.app.service;
 
-import com.app.exception.model.PalindromeDetails;
+import com.app.model.PalindromeDetails;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +19,7 @@ public interface CacheService<V, K> {
      * @return
      * @implNote This method saves the value to the cache.
      */
-    PalindromeDetails saveValueToCache(V value, K key) ;
+    PalindromeDetails saveValueToCache(V value, K key);
 
     /**
      * @param key

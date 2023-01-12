@@ -1,4 +1,4 @@
-package com.app.exception.model;
+package com.app.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

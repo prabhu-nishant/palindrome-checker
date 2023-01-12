@@ -1,6 +1,6 @@
 package com.app.controller;
 
-import com.app.exception.model.UserDetails;
+import com.app.model.UserDetails;
 import com.app.service.PalindromeService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;

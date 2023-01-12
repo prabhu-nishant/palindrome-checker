@@ -9,7 +9,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(MockitoExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -21,11 +22,11 @@ class ValidStringWithNoNumbersValidatorTest {
     @Mock
     private ConstraintValidatorContext constraintValidatorContext;
 
-    private ValidStringWithNoNumbersValidator validStringWithNoNumbersValidator ;
+    private ValidStringWithNoNumbersValidator validStringWithNoNumbersValidator;
 
     @BeforeAll
-    void setUp(){
-        validStringWithNoNumbersValidator  =  new ValidStringWithNoNumbersValidator();
+    void setUp() {
+        validStringWithNoNumbersValidator = new ValidStringWithNoNumbersValidator();
         validStringWithNoNumbersValidator.initialize(validStringWithNoNumbers);
     }
 

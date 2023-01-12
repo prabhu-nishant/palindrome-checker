@@ -2,9 +2,7 @@ package com.app.service;
 
 import com.app.repository.PalindromeDetailsRepository;
 import com.app.testhelper.TestDataHelper;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

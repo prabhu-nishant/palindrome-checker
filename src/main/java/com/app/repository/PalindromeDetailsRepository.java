@@ -1,10 +1,10 @@
 package com.app.repository;
 
-import com.app.exception.model.PalindromeDetails;
+import com.app.model.PalindromeDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PalindromeDetailsRepository extends JpaRepository<PalindromeDetails,String> {
+public interface PalindromeDetailsRepository extends JpaRepository<PalindromeDetails, String> {
 
 }

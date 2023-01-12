@@ -1,7 +1,7 @@
 package com.app.testhelper;
 
-import com.app.exception.model.PalindromeDetails;
-import com.app.exception.model.UserDetails;
+import com.app.model.PalindromeDetails;
+import com.app.model.UserDetails;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

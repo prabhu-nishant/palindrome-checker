@@ -1,6 +1,6 @@
 package com.app.service;
 
-import com.app.exception.model.PalindromeDetails;
+import com.app.model.PalindromeDetails;
 import com.app.repository.PalindromeDetailsRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
