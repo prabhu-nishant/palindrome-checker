@@ -1,6 +1,6 @@
 package com.app.exception;
 
-import com.app.main.PalindromeApplication;
+import com.app.PalindromeApplication;
 import com.app.testhelper.TestDataHelper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

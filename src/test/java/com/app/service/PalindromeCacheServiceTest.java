@@ -15,7 +15,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @ExtendWith(MockitoExtension.class)
 class PalindromeCacheServiceTest {
 
@@ -25,14 +24,9 @@ class PalindromeCacheServiceTest {
     @Mock
     private PalindromeDetailsRepository palindromeDetailsRepository;
 
-    @BeforeAll
-    void setUp() {
-        palindromeCacheService = new PalindromeCacheServiceImpl();
-    }
-
     @Test
     void saveValueToCache() {
-        Mockito.when(palindromeDetailsRepository.saveAndFlush(Mockito.any())).thenReturn(TestDataHelper.getPalindromeCacheValue());
+        Mockito.when(palindromeDetailsRepository.save(Mockito.any())).thenReturn(TestDataHelper.getPalindromeCacheValue());
         assertEquals(TestDataHelper.getPalindromeCacheValue(), palindromeCacheService.saveValueToCache(TestDataHelper.getPalindromeCacheValue(), TestDataHelper.PALINDROME_STRING));
     }
 

@@ -7,11 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * @author prabh
@@ -26,9 +26,20 @@ public class PalindromeCacheServiceImpl implements CacheService<PalindromeDetail
 
     @Override
     @CachePut(key = "#key", value = "palindromeDetailsCache", unless = "#result == null")
-    @Async
     public PalindromeDetails saveValueToCache(PalindromeDetails palindromeDetails, String key) {
-        return palindromeDetailsRepository.saveAndFlush(palindromeDetails);
+
+        CompletableFuture.runAsync(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    palindromeDetailsRepository.save(palindromeDetails);
+                } catch (Exception e) {
+                    throw e;
+                }
+            }
+        });
+
+        return palindromeDetails;
     }
 
     @Override
@@ -41,6 +52,8 @@ public class PalindromeCacheServiceImpl implements CacheService<PalindromeDetail
     @PostConstruct
     @Cacheable(value = "palindromeDetailsCache", unless = "#result == null")
     public List<PalindromeDetails> getAllCacheValues() {
+
+        System.out.println("Loading cache");
         return palindromeDetailsRepository.findAll();
     }
 
