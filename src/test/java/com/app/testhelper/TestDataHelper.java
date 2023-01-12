@@ -17,6 +17,8 @@ public class TestDataHelper {
 
     public static final String NULL_STRING = null;
 
+    public static final String STRING_WITH_WHITE_SPACES = "a a a";
+
     public static final String ALPHA_NUMERIC_STRING = "madam123";
 
     public static final String NUMERIC_STRING = "12345";
@@ -46,6 +48,13 @@ public class TestDataHelper {
     public static String getTestInvalidUserDetails() {
 
         String invalidUserDetails = "{\"username\": \"bob\", \"value\" : \"madam\" , }";
+        return invalidUserDetails;
+
+    }
+
+    public static String getTestUserDetailsWithInvalidUsername() {
+
+        String invalidUserDetails = "{\"username\": \"\", \"value\" : \"madam\"  }";
         return invalidUserDetails;
 
     }
