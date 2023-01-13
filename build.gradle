@@ -66,3 +66,9 @@ integrationTest {
 check.dependsOn integrationTest
 //Ensure that our unit tests are run before our integration tests
 integrationTest.mustRunAfter test
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.app.PalindromeApplication'
+    }
+}
