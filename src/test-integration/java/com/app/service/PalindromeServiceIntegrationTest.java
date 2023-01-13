@@ -29,13 +29,13 @@ class PalindromeServiceIntegrationTest {
     private PalindromeService palindromeService;
 
     @Autowired
-    private PalindromeDetailsRepository palindromeDetailsRepository;
+    private PalindromeCacheServiceImpl palindromeCacheService;
 
     @BeforeAll
     void setUp() throws InterruptedException {
-        palindromeDetailsRepository.save(new PalindromeDetails("tat", true));
-        palindromeDetailsRepository.save(new PalindromeDetails("brb", true));
-        palindromeDetailsRepository.save(new PalindromeDetails("ctl", false));
+        palindromeCacheService.saveValueToCache(new PalindromeDetails("tat",true),"tat");
+        palindromeCacheService.saveValueToCache(new PalindromeDetails("brb",true),"brb");
+        palindromeCacheService.saveValueToCache(new PalindromeDetails("ctl",false),"ctl");
         Thread.sleep(10000);
     }
 
@@ -49,7 +49,6 @@ class PalindromeServiceIntegrationTest {
     @Test
     void checkIfValueIsPalindrome_WithCacheMiss_AndStringIsNotPalindrome() throws InterruptedException {
         assertEquals(false, palindromeService.checkIfValueIsPalindrome("ctrl"));
-        Thread.sleep(10000);
         Optional<PalindromeDetails> result = ofNullable(cacheManager.getCache("palindromeDetailsCache")).map(c -> c.get("ctrl", PalindromeDetails.class));
         assertEquals(TestDataHelper.getTestStringPalindromeOrNotDetails("ctrl"), result);
     }
