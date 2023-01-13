@@ -53,7 +53,6 @@ public class PalindromeCacheServiceImpl implements CacheService<PalindromeDetail
     @Cacheable(value = "palindromeDetailsCache", unless = "#result == null")
     public List<PalindromeDetails> getAllCacheValues() {
 
-        System.out.println("Loading cache");
         return palindromeDetailsRepository.findAll();
     }
 

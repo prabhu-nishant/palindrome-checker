@@ -1,0 +1,1 @@
+create table palindrome_details (input_string varchar(255) not null,is_palindrome boolean not null, primary key (input_string));

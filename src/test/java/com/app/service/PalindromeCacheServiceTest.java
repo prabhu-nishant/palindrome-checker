@@ -24,22 +24,22 @@ class PalindromeCacheServiceTest {
 
     @Test
     void saveValueToCache() {
-        Mockito.when(palindromeDetailsRepository.save(Mockito.any())).thenReturn(TestDataHelper.getPalindromeCacheValue());
-        assertEquals(TestDataHelper.getPalindromeCacheValue(), palindromeCacheService.saveValueToCache(TestDataHelper.getPalindromeCacheValue(), TestDataHelper.PALINDROME_STRING));
+        Mockito.when(palindromeDetailsRepository.save(Mockito.any())).thenReturn(TestDataHelper.getPalindromeCacheValue("kayak"));
+        assertEquals(TestDataHelper.getPalindromeCacheValue("kayak"), palindromeCacheService.saveValueToCache(TestDataHelper.getPalindromeCacheValue("kayak"), "kayak"));
     }
 
     @Test
     void getValueFromCache() {
-        Mockito.when(palindromeDetailsRepository.findById(Mockito.any())).thenReturn(Optional.of(TestDataHelper.getPalindromeCacheValue()));
-        assertEquals(Optional.of(TestDataHelper.getPalindromeCacheValue()), palindromeCacheService.getValueFromCache(TestDataHelper.PALINDROME_STRING));
+        Mockito.when(palindromeDetailsRepository.findById(Mockito.any())).thenReturn(Optional.of(TestDataHelper.getPalindromeCacheValue("radar")));
+        assertEquals(Optional.of(TestDataHelper.getPalindromeCacheValue("radar")), palindromeCacheService.getValueFromCache("radar"));
     }
 
     @Test
-    void populateCache() {
-        Mockito.when(palindromeDetailsRepository.findAll()).thenReturn(TestDataHelper.getCacheValuesList());
+    void getAllCacheValues() {
+        Mockito.when(palindromeDetailsRepository.findAll()).thenReturn(TestDataHelper.getCacheValuesList("kayak", "radar"));
         assertEquals(2, palindromeCacheService.getAllCacheValues().size());
-        assertEquals(TestDataHelper.getPalindromeCacheValue(), palindromeCacheService.getAllCacheValues().get(0));
-        assertEquals(TestDataHelper.getNotAPalindromeCacheValue(), palindromeCacheService.getAllCacheValues().get(1));
+        assertEquals(TestDataHelper.getPalindromeCacheValue("kayak"), palindromeCacheService.getAllCacheValues().get(0));
+        assertEquals(TestDataHelper.getPalindromeCacheValue("radar"), palindromeCacheService.getAllCacheValues().get(1));
 
     }
 }

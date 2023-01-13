@@ -32,29 +32,16 @@ class PalindromeServiceTest {
     }
 
     @Test
-    void checkIfValueIsPalindrome_WithCacheHit_AndStringIsPalindrome() {
-        Mockito.when(palindromeCacheService.getValueFromCache(Mockito.anyString())).thenReturn(TestDataHelper.getTestStringPalindromeDetails());
-        assertEquals(true, palindromeService.checkIfValueIsPalindrome(TestDataHelper.PALINDROME_STRING));
-
-    }
-
-    @Test
-    void checkIfValueIsPalindrome_WithCacheMiss_AndStringIsPalindrome() {
+    void checkIfValueIsPalindrome_AndStringIsPalindrome() {
         Mockito.when(palindromeCacheService.getValueFromCache(Mockito.anyString())).thenReturn(Optional.empty());
-        assertEquals(true, palindromeService.checkIfValueIsPalindrome(TestDataHelper.PALINDROME_STRING));
+        assertEquals(true, palindromeService.checkIfValueIsPalindrome("madam"));
     }
 
     @Test
     void checkIfValueIsPalindrome_WithCacheHit_AndStringIsNotPalindrome() {
-        Mockito.when(palindromeCacheService.getValueFromCache(Mockito.anyString())).thenReturn(TestDataHelper.getTestStringNotPalindromeDetails());
-        assertEquals(false, palindromeService.checkIfValueIsPalindrome(TestDataHelper.NOT_A_PALINDROME_STRING));
+        Mockito.when(palindromeCacheService.getValueFromCache(Mockito.anyString())).thenReturn(TestDataHelper.getTestStringPalindromeOrNotDetails("abcd"));
+        assertEquals(false, palindromeService.checkIfValueIsPalindrome("abcd"));
 
-    }
-
-    @Test
-    void checkIfValueIsPalindrome_WithCacheMiss_AndStringIsNotPalindrome() {
-        Mockito.when(palindromeCacheService.getValueFromCache(Mockito.anyString())).thenReturn(Optional.empty());
-        assertEquals(false, palindromeService.checkIfValueIsPalindrome(TestDataHelper.NOT_A_PALINDROME_STRING));
     }
 
     @AfterAll

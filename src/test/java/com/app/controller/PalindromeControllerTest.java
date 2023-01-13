@@ -27,13 +27,13 @@ class PalindromeControllerTest {
     @Test
     void checkPalindrome() throws Exception {
         Mockito.when(palindromeService.checkIfValueIsPalindrome(Mockito.any())).thenReturn(TestDataHelper.IS_PALINDROME_TRUE);
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post(TestDataHelper.URI).contentType(MediaType.APPLICATION_JSON).content(TestDataHelper.getTestUserDetails())).andReturn();
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post(TestDataHelper.URI).contentType(MediaType.APPLICATION_JSON).content(TestDataHelper.getTestUserDetails("Johnny", "madam"))).andReturn();
 
         int status = mvcResult.getResponse().getStatus();
         assertEquals(200, status);
 
         String content = mvcResult.getResponse().getContentAsString();
-        assertEquals(TestDataHelper.getExpectedResultUserDetails(), content);
+        assertEquals(TestDataHelper.getExpectedResultUserDetails("Johnny", "madam"), content);
     }
 
 }

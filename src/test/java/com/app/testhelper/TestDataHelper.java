@@ -2,6 +2,7 @@ package com.app.testhelper;
 
 import com.app.model.PalindromeDetails;
 import com.app.model.UserDetails;
+import com.app.util.Utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -34,11 +35,11 @@ public class TestDataHelper {
     public static final String URI = "/api/palindrome";
 
 
-    public static String getTestUserDetails() throws JsonProcessingException {
+    public static String getTestUserDetails(String username, String input) throws JsonProcessingException {
 
         UserDetails userDetails = new UserDetails();
-        userDetails.setUsername("abc");
-        userDetails.setValue("madam");
+        userDetails.setUsername(username);
+        userDetails.setValue(input);
 
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(userDetails);
@@ -70,57 +71,43 @@ public class TestDataHelper {
 
     }
 
-    public static String getExpectedResultUserDetails() throws JsonProcessingException {
+    public static String getExpectedResultUserDetails(String username, String input) throws JsonProcessingException {
 
         UserDetails userDetails = new UserDetails();
-        userDetails.setUsername("abc");
-        userDetails.setValue("madam");
-        userDetails.setPalindrome(true);
+        userDetails.setUsername(username);
+        userDetails.setValue(input);
+        userDetails.setPalindrome(Utils.isStringPalindrome(userDetails.getValue()));
 
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(userDetails);
 
     }
 
-    public static Optional<PalindromeDetails> getTestStringPalindromeDetails() {
+    public static Optional<PalindromeDetails> getTestStringPalindromeOrNotDetails(String input) {
         PalindromeDetails palindromeDetails = new PalindromeDetails();
-        palindromeDetails.setInputString(PALINDROME_STRING);
-        palindromeDetails.setPalindrome(IS_PALINDROME_TRUE);
+        palindromeDetails.setInputString(input);
+        palindromeDetails.setPalindrome(Utils.isStringPalindrome(input));
         return Optional.of(palindromeDetails);
     }
 
-    public static Optional<PalindromeDetails> getTestStringNotPalindromeDetails() {
+    public static PalindromeDetails getPalindromeCacheValue(String input) {
         PalindromeDetails palindromeDetails = new PalindromeDetails();
-        palindromeDetails.setInputString(NOT_A_PALINDROME_STRING);
-        palindromeDetails.setPalindrome(IS_PALINDROME_FALSE);
-        return Optional.of(palindromeDetails);
-    }
-
-    public static PalindromeDetails getPalindromeCacheValue() {
-        PalindromeDetails palindromeDetails = new PalindromeDetails();
-        palindromeDetails.setInputString(PALINDROME_STRING);
-        palindromeDetails.setPalindrome(IS_PALINDROME_TRUE);
+        palindromeDetails.setInputString(input);
+        palindromeDetails.setPalindrome(Utils.isStringPalindrome(input));
         return palindromeDetails;
     }
 
-    public static PalindromeDetails getNotAPalindromeCacheValue() {
-        PalindromeDetails palindromeDetails = new PalindromeDetails();
-        palindromeDetails.setInputString(NOT_A_PALINDROME_STRING);
-        palindromeDetails.setPalindrome(IS_PALINDROME_FALSE);
-        return palindromeDetails;
-    }
-
-    public static List<PalindromeDetails> getCacheValuesList() {
+    public static List<PalindromeDetails> getCacheValuesList(String input1, String input2) {
 
         List<PalindromeDetails> list = new ArrayList<PalindromeDetails>();
 
         PalindromeDetails palindromeDetails_1 = new PalindromeDetails();
-        palindromeDetails_1.setInputString(PALINDROME_STRING);
-        palindromeDetails_1.setPalindrome(IS_PALINDROME_TRUE);
+        palindromeDetails_1.setInputString(input1);
+        palindromeDetails_1.setPalindrome(Utils.isStringPalindrome(input1));
 
         PalindromeDetails palindromeDetails_2 = new PalindromeDetails();
-        palindromeDetails_2.setInputString(NOT_A_PALINDROME_STRING);
-        palindromeDetails_2.setPalindrome(IS_PALINDROME_FALSE);
+        palindromeDetails_2.setInputString(input2);
+        palindromeDetails_2.setPalindrome(Utils.isStringPalindrome(input2));
 
         list.add(palindromeDetails_1);
         list.add(palindromeDetails_2);

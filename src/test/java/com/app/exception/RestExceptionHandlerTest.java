@@ -34,7 +34,7 @@ class RestExceptionHandlerTest {
     @Test
     void handleHttpMediaTypeNotSupported() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post(TestDataHelper.URI)
-                        .content(TestDataHelper.getTestUserDetails())
+                        .content(TestDataHelper.getTestUserDetails("Johnny", "madam"))
                         .contentType(MediaType.TEXT_PLAIN))
                 .andExpect(MockMvcResultMatchers.status().isUnsupportedMediaType())
                 .andExpect(MockMvcResultMatchers.content()
