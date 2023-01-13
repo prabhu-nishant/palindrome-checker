@@ -2,7 +2,6 @@ package com.app.service;
 
 import com.app.PalindromeApplication;
 import com.app.model.PalindromeDetails;
-import com.app.repository.PalindromeDetailsRepository;
 import com.app.testhelper.TestDataHelper;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -33,9 +32,9 @@ class PalindromeServiceIntegrationTest {
 
     @BeforeAll
     void setUp() throws InterruptedException {
-        palindromeCacheService.saveValueToCache(new PalindromeDetails("tat",true),"tat");
-        palindromeCacheService.saveValueToCache(new PalindromeDetails("brb",true),"brb");
-        palindromeCacheService.saveValueToCache(new PalindromeDetails("ctl",false),"ctl");
+        palindromeCacheService.saveValueToCache(new PalindromeDetails("tat", true), "tat");
+        palindromeCacheService.saveValueToCache(new PalindromeDetails("brb", true), "brb");
+        palindromeCacheService.saveValueToCache(new PalindromeDetails("ctl", false), "ctl");
         Thread.sleep(10000);
     }
 

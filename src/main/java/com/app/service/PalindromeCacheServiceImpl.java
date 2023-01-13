@@ -24,19 +24,27 @@ public class PalindromeCacheServiceImpl implements CacheService<PalindromeDetail
     @Autowired
     private PalindromeDetailsRepository palindromeDetailsRepository;
 
+    /**
+     * This method saves the records to database store asynchronously
+     *
+     * @param palindromeDetails
+     * @param key
+     * @return
+     */
     @Override
     @CachePut(key = "#key", value = "palindromeDetailsCache", unless = "#result == null")
     public PalindromeDetails saveValueToCache(PalindromeDetails palindromeDetails, String key) {
 
-        CompletableFuture.runAsync(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    palindromeDetailsRepository.save(palindromeDetails);
-                } catch (Exception e) {
-                    throw e;
-                }
+        CompletableFuture<PalindromeDetails> result = CompletableFuture.supplyAsync(() -> {
+            try {
+                return palindromeDetailsRepository.save(palindromeDetails);
+            } catch (Exception ex) {
+                log.error("Exception while persisting data in database " + ex.getLocalizedMessage() + ex.getStackTrace().toString());
+                return palindromeDetails;
             }
+        });
+        result.whenComplete((s, ex) -> {
+            log.debug("Data persisted in database store " + s.toString());
         });
 
         return palindromeDetails;
